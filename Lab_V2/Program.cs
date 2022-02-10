@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Lab_V2
@@ -13,14 +14,28 @@ namespace Lab_V2
             List<string> listSemiColon = new List<string>();
             List<string> listComma = new List<string>();
 
-
+            int startIndex = 0;
+            int lengthIndex = 23;
+            
             var stringInput = "SHAPE,X,Y,LENGTH,POINTS; CIRCLE,3,1,13,100; CIRCLE,1,-1,15,200; SQUARE , -1 ,0 ,20 ,300; SQUARE , -3 ,2 ,8 ,400";
+
+            String substring = stringInput.Substring(startIndex, lengthIndex);
+            //Console.WriteLine(substring);
+
+            listSemiColon = substring.Split(',').ToList();
+
+            
+
             string trimmed = String.Concat(stringInput.Where(c => !Char.IsWhiteSpace(c)));
             //var trimInput = stringInput.Trim();
-            listSemiColon = trimmed.Split(';').ToList();
-            trimmed.Split(',')
-                .Select(line => line.Split('='))
-                .ToList();
+            //listSemiColon = trimmed.Split(';').ToList();
+            
+            listComma = trimmed.Split(',').ToList();
+            
+            foreach (var l in listSemiColon)
+            {
+                Console.WriteLine(l);
+            }
 
 
             var shapeScoreh = new List<double>();
