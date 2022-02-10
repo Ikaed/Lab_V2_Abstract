@@ -13,9 +13,11 @@ namespace Lab_V2
             else
                 return false;
         }
-        public override void Draw()
+        public override void Draw(int shapeType, int x, int y, int instancePoints, int length)
         {
-            Console.WriteLine("test3");
+            //Console.WriteLine("test3");
+
+
         }
     }
 }
