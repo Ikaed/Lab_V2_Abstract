@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.RegularExpressions;
+using System.Threading.Channels;
 
 namespace Lab_V2
 {
@@ -11,32 +14,91 @@ namespace Lab_V2
         private static void Main(string[] args)
         {
 
-            List<string> listSemiColon = new List<string>();
-            List<string> listComma = new List<string>();
+            List<string> listHeader = new List<string>();
+            List<string> listShape = new List<string>();
+            List<string> listX = new List<string>();
+            List<string> listY = new List<string>();
+            List<string> listLength = new List<string>();
+            List<string> listPoints = new List<string>();
 
-            int startIndex = 0;
-            int lengthIndex = 23;
-            
             var stringInput = "SHAPE,X,Y,LENGTH,POINTS; CIRCLE,3,1,13,100; CIRCLE,1,-1,15,200; SQUARE , -1 ,0 ,20 ,300; SQUARE , -3 ,2 ,8 ,400";
-
-            String substring = stringInput.Substring(startIndex, lengthIndex);
-            //Console.WriteLine(substring);
-
-            listSemiColon = substring.Split(',').ToList();
-
-            
-
             string trimmed = String.Concat(stringInput.Where(c => !Char.IsWhiteSpace(c)));
+    
+            //Header
+            int startIndexHeader = 0;
+            int lengthIndexHeader = 23;
+            String substringHeader = trimmed.Substring(startIndexHeader, lengthIndexHeader);
+            //Console.WriteLine(substring);
+            listHeader = substringHeader.Split(',').ToList();
+
+        
             //var trimInput = stringInput.Trim();
             //listSemiColon = trimmed.Split(';').ToList();
-            
-            listComma = trimmed.Split(',').ToList();
-            
-            foreach (var l in listSemiColon)
+
+            //Variabler
+            var startIndexVar = 24;
+            var lengthIndexVar = 73;
+            String substringVariables = trimmed.Substring(startIndexVar, lengthIndexVar);
+
+            var listVariables = Regex.Split(substringVariables, @",|;");
+
+            //foreach (var varh in listHeader)
+            //{
+            //    Console.WriteLine(varh);
+            //}
+
+            listShape.Add(listHeader[0]);
+            listShape.Add(listVariables[0]);
+            listShape.Add(listVariables[5]);
+            listShape.Add(listVariables[10]);
+            listShape.Add(listVariables[15]);
+            foreach (var l in listShape)
             {
                 Console.WriteLine(l);
             }
+            listX.Add(listHeader[1]);
+            listX.Add(listVariables[1]);
+            listX.Add(listVariables[6]);
+            listX.Add(listVariables[11]);
+            listX.Add(listVariables[16]);
 
+            foreach (var xlist in listX)
+            {
+                Console.WriteLine(xlist);
+            }
+
+            listY.Add(listHeader[2]);
+            listY.Add(listVariables[2]);
+            listY.Add(listVariables[7]);
+            listY.Add(listVariables[12]);
+            listY.Add(listVariables[17]);
+
+            foreach (var ylist in listY)
+            {
+                Console.WriteLine(ylist);
+            }
+
+            listLength.Add(listHeader[3]);
+            listLength.Add(listVariables[3]);
+            listLength.Add(listVariables[8]);
+            listLength.Add(listVariables[13]);
+            listLength.Add(listVariables[18]);
+
+            foreach (var llist in listLength)
+            {
+                Console.WriteLine(llist);
+            }
+
+            listPoints.Add(listHeader[4]);
+            listPoints.Add(listVariables[4]);
+            listPoints.Add(listVariables[9]);
+            listPoints.Add(listVariables[14]);
+            listPoints.Add(listVariables[19]);
+
+            foreach (var plist in listPoints)
+            {
+                Console.WriteLine(plist);
+            }
 
             var shapeScoreh = new List<double>();
             var shapeScorem = new List<double>();
