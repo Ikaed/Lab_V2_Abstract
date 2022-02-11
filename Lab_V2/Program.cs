@@ -21,6 +21,10 @@ namespace Lab_V2
             List<string> listLength = new List<string>();
             List<string> listPoints = new List<string>();
 
+            int inputShapeTypeCircle = 0;
+            int inputShapeTypeSquare = 0;
+            
+
             var stringInput = "SHAPE,X,Y,LENGTH,POINTS; CIRCLE,3,1,13,100; CIRCLE,1,-1,15,200; SQUARE , -1 ,0 ,20 ,300; SQUARE , -3 ,2 ,8 ,400";
             string trimmed = String.Concat(stringInput.Where(c => !Char.IsWhiteSpace(c)));
     
@@ -46,7 +50,7 @@ namespace Lab_V2
             //{
             //    Console.WriteLine(varh);
             //}
-
+            //Vi använder listheader för att särskilja cirkel och fyrkant
             listShape.Add(listHeader[0]);
             listShape.Add(listVariables[0]);
             listShape.Add(listVariables[5]);
@@ -56,6 +60,24 @@ namespace Lab_V2
             {
                 Console.WriteLine(l);
             }
+
+       //forloop här?
+
+            if (listShape.Contains("Circle"))
+            {
+                Console.WriteLine("test");
+                 inputShapeTypeCircle = 2;
+                 Console.WriteLine(inputShapeTypeCircle);
+
+            }
+            else
+            {
+                inputShapeTypeSquare = 1;
+                Console.WriteLine(inputShapeTypeSquare);
+            }
+
+         
+
             listX.Add(listHeader[1]);
             listX.Add(listVariables[1]);
             listX.Add(listVariables[6]);
@@ -117,10 +139,10 @@ namespace Lab_V2
             var inputPointsCircle = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Ange att det är en cirkel = 2");
-            var inputShapeTypeCircle = Convert.ToInt32(Console.ReadLine());
+            //var inputShapeTypeCircle = Convert.ToInt32(Console.ReadLine());
 
 
-            var shapeTypeCircle = inputShapeTypeCircle;
+          
             var instancePointsCircle = inputPointsCircle;
             var AreaCircle = 10;
             var x = 51;
@@ -140,13 +162,13 @@ namespace Lab_V2
             if (circle.HitCircle(circleX, circleY, rad, x, y))
             {
                 Console.WriteLine("Inuti cirkel");
-                var eqCircleH = shapeTypeCircle * instancePointsCircle / AreaCircle;
+                var eqCircleH = inputShapeTypeCircle * instancePointsCircle / AreaCircle;
                 shapeScoreh.Add(eqCircleH);
             }
             else
             {
                 Console.WriteLine("Utanför cirkel");
-                var eqCircleM = shapeTypeCircle * instancePointsCircle / AreaCircle;
+                var eqCircleM = inputShapeTypeCircle * instancePointsCircle / AreaCircle;
                 shapeScorem.Add(eqCircleM);
             }
 
@@ -163,7 +185,7 @@ namespace Lab_V2
             var inputPointsSquare = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Ange att det är en fyrkant = 1");
-            var inputShapeTypeSquare = Convert.ToInt32(Console.ReadLine());
+            //var inputShapeTypeSquare = Convert.ToInt32(Console.ReadLine());
 
             // given point
             int SquareX = 1, SquareY = 5;
@@ -173,7 +195,7 @@ namespace Lab_V2
             var x2 = topX + inputLengthSquare / 2;
             var y2 = topY + inputLengthSquare / 2;
 
-            var shapeTypeSquare = inputShapeTypeSquare;
+          
             var instancePointsSquare = inputPointsSquare;
             var AreaSquare = 10;
 
@@ -181,13 +203,13 @@ namespace Lab_V2
             if (square.HitSquare(x1, y1, x2, y2, SquareX, SquareY))
             {
                 Console.Write("Inuti fyrkant");
-                var eqSquareH = shapeTypeSquare * instancePointsSquare / AreaSquare;
+                var eqSquareH = inputShapeTypeSquare * instancePointsSquare / AreaSquare;
                 shapeScoreh.Add(eqSquareH);
             }
             else
             {
                 Console.Write("Utanför fyrkant");
-                var eqSquareM = shapeTypeSquare * instancePointsSquare / AreaSquare;
+                var eqSquareM = inputShapeTypeSquare * instancePointsSquare / AreaSquare;
                 shapeScoreh.Add(eqSquareM);
             }
 
