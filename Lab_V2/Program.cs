@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
+using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 using System.Threading.Channels;
 
@@ -11,7 +13,9 @@ namespace Lab_V2
 {
     internal class Program
     {
-        private static void Main(string[] args)
+     
+
+ static void Main(string[] args)
         {
 
             List<string> listHeader = new List<string>();
@@ -51,7 +55,7 @@ namespace Lab_V2
             //    Console.WriteLine(varh);
             //}
             //Vi använder listheader för att särskilja cirkel och fyrkant
-            listShape.Add(listHeader[0]);
+            //listShape.Add(listHeader[0]);
             listShape.Add(listVariables[0]);
             listShape.Add(listVariables[5]);
             listShape.Add(listVariables[10]);
@@ -62,23 +66,14 @@ namespace Lab_V2
             }
 
        //forloop här?
+       
+            
 
-            if (listShape.Contains("Circle"))
-            {
-                Console.WriteLine("test");
-                 inputShapeTypeCircle = 2;
-                 Console.WriteLine(inputShapeTypeCircle);
-
-            }
-            else
-            {
-                inputShapeTypeSquare = 1;
-                Console.WriteLine(inputShapeTypeSquare);
-            }
+      
 
          
 
-            listX.Add(listHeader[1]);
+            //listX.Add(listHeader[1]);
             listX.Add(listVariables[1]);
             listX.Add(listVariables[6]);
             listX.Add(listVariables[11]);
@@ -89,7 +84,7 @@ namespace Lab_V2
                 Console.WriteLine(xlist);
             }
 
-            listY.Add(listHeader[2]);
+            //listY.Add(listHeader[2]);
             listY.Add(listVariables[2]);
             listY.Add(listVariables[7]);
             listY.Add(listVariables[12]);
@@ -100,7 +95,7 @@ namespace Lab_V2
                 Console.WriteLine(ylist);
             }
 
-            listLength.Add(listHeader[3]);
+            //listLength.Add(listHeader[3]);
             listLength.Add(listVariables[3]);
             listLength.Add(listVariables[8]);
             listLength.Add(listVariables[13]);
@@ -111,17 +106,47 @@ namespace Lab_V2
                 Console.WriteLine(llist);
             }
 
-            listPoints.Add(listHeader[4]);
+            //listPoints.Add(listHeader[4]);
             listPoints.Add(listVariables[4]);
             listPoints.Add(listVariables[9]);
             listPoints.Add(listVariables[14]);
             listPoints.Add(listVariables[19]);
-
+      
             foreach (var plist in listPoints)
             {
                 Console.WriteLine(plist);
             }
 
+          
+
+            var shapeNumber = returnShape(listShape);
+            Console.WriteLine("Det returneras en " + shapeNumber);
+
+
+            int returnShape(List<string> listShape)
+            {
+
+                foreach (var item in listShape)
+                {
+                    
+                    Console.WriteLine(item + "test");
+                }
+                //loopen slutar när den läser circle
+                if (listShape.Contains("CIRCLE"))
+                    {
+
+                        return 2;
+                        
+
+                    }
+
+                return 1;
+
+
+            }
+              
+            
+        
             var shapeScoreh = new List<double>();
             var shapeScorem = new List<double>();
 
@@ -215,7 +240,13 @@ namespace Lab_V2
 
             Console.WriteLine(string.Join(", ", shapeScoreh));
             Console.WriteLine(string.Join(", ", shapeScorem));
-  
+
+
+
+
         }
+
+
+
     }
 }
