@@ -39,7 +39,7 @@ namespace Lab_V2
 
             var circle = new Circle();
 
-         
+
 
             //Avser cirkel
             //Console.WriteLine("Ange en längd");
@@ -52,10 +52,14 @@ namespace Lab_V2
 
             //var stringInput = "SHAPE,X,Y,LENGTH,POINTS";
 
-            var stringInput = "SHAPE ,X,Y,LENGTH ,POINTS;CIRCLE ,3,1,13,100;CIRCLE ,1,-1,15,200; SQUARE, -1 ,0 ,20 ,300; SQUARE , -3 ,2 ,8 ,400;";
+            //var stringInput = "shape ,X,Y,LENGTH ,points;CIRCLE ,3,1,13,100;CIRCLE ,1,-1,15,200; square, -1 ,0 ,20 ,300; SQUARE , -3 ,2 ,8 ,400;";
+            //ATT MATA IN: shape ,X,Y,LENGTH ,points; CIRCLE ,3,1,13,100; CIRCLE ,1,-1,15,200; square, -1 ,0 ,20 ,300; SQUARE , -3 ,2 ,8 ,400;
+            Console.WriteLine("Mata in värdena");
+            var stringInput = Console.ReadLine().ToUpper();
             string trimmed = String.Concat(stringInput.Where(c => !Char.IsWhiteSpace(c)));
 
-           var listHeader = trimmed.Split(';').ToList();
+            Console.WriteLine("Upphöjda bokstäver" + trimmed);
+           //var listHeader = trimmed.Split(';').ToList();
 
          
 
@@ -77,11 +81,7 @@ namespace Lab_V2
             //var trimInput = stringInput.Trim();
             //listSemiColon = trimmed.Split(';').ToList();
 
-            var ShaoeWord = "SHAPE";
-
-
-
-
+     
             //Variabler
             var startIndexVar = 24;
             var lengthIndexVar = 73;
