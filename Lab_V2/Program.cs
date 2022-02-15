@@ -136,12 +136,17 @@ namespace Lab_V2
             var listVariables3 = Regex.Split(substringVariables3, @";|,");
 
 
-
+           
             listShape3.Add(listVariables3[indexShape]);
             listShape3.Add(listVariables3[indexX]);
             listShape3.Add(listVariables3[indexY]);
-            listShape3.Add(listVariables3[indexPoints]);
             listShape3.Add(listVariables3[indexLength]);
+            listShape3.Add(listVariables3[indexPoints]);
+
+            //foreach (var VARIABLE in listShape3)
+            //{
+            //    Console.WriteLine(VARIABLE + "listhshape3");
+            //}
 
             var substringVariables4 = substringVariables3.Substring(substringVariables3.IndexOf(';') + 1);
             var listVariables4 = Regex.Split(substringVariables4, @";|,");
@@ -149,9 +154,14 @@ namespace Lab_V2
             listShape4.Add(listVariables4[indexShape]);
             listShape4.Add(listVariables4[indexX]);
             listShape4.Add(listVariables4[indexY]);
-            listShape4.Add(listVariables4[indexPoints]);
             listShape4.Add(listVariables4[indexLength]);
+            listShape4.Add(listVariables4[indexPoints]);
 
+
+            //foreach (var VARIABLE in listShape4)
+            //{
+            //    Console.WriteLine(VARIABLE + "listhshape4");
+            //}
 
             //returnShape(listShape1);
 

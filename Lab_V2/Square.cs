@@ -8,13 +8,8 @@ namespace Lab_V2
 
         public void getList(List<string> listShape)
         {
-            foreach (var VARIABLE in listShape)
-            {
+            
 
-
-                Console.WriteLine(VARIABLE + "testfyrkant");
-
-            }
         }
 
       
