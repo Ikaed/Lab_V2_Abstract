@@ -30,6 +30,8 @@ namespace Lab_V2
 
             List<string> listShape4 = new List<string>();
 
+            
+
             //List<string> listX = new List<string>();
             //List<string> listY = new List<string>();
             //List<string> listLength = new List<string>();
@@ -85,13 +87,13 @@ namespace Lab_V2
 
             var headerVariables = Regex.Split(substringHeader, @",|;");
 
-            foreach (var vari in headerVariables)
-            {
-                Console.WriteLine(vari + "test");
+            //foreach (var vari in headerVariables)
+            //{
+            //    Console.WriteLine(vari + "test");
 
-            }
+            //}
 
-            Console.WriteLine();
+     
             //var trimInput = stringInput.Trim();
             //listSemiColon = trimmed.Split(';').ToList();
 
@@ -101,9 +103,11 @@ namespace Lab_V2
             var lengthIndexVar = 73;
             String substringVariables = trimmed.Substring(startIndexVar, lengthIndexVar);
 
-            Console.WriteLine(substringVariables + "test222");
+            //Console.WriteLine(substringVariables + "test222");
 
             var listVariables = Regex.Split(substringVariables, @";|,");
+
+
 
             int indexShape = Array.FindIndex(headerVariables, row => row.Contains("SHAPE"));
             int indexX = Array.FindIndex(headerVariables, row => row.Contains("X"));
@@ -150,7 +154,7 @@ namespace Lab_V2
 
             var substringVariables4 = substringVariables3.Substring(substringVariables3.IndexOf(';') + 1);
             var listVariables4 = Regex.Split(substringVariables4, @";|,");
-            Console.WriteLine(substringVariables4);
+            //Console.WriteLine(substringVariables4);
             listShape4.Add(listVariables4[indexShape]);
             listShape4.Add(listVariables4[indexX]);
             listShape4.Add(listVariables4[indexY]);
@@ -165,6 +169,7 @@ namespace Lab_V2
 
             //returnShape(listShape1);
 
+          
             ////Squareklassen
             //bool HitSquare(int x1, int y1, int x2,
             //    int y2, int SquareX, int SquareY)
@@ -176,6 +181,8 @@ namespace Lab_V2
             //        return false;
             //}
 
+          
+            //circlex är mittpunkt x, circley är mittpunkt y, x och y är pricken
             //bool HitCircle(int circleX, int circleY, int rad, int x, int y)
             //{
 
@@ -214,44 +221,116 @@ namespace Lab_V2
             Square square = new Square();
 
 
-            sendList(listShape1);
-            sendList(listShape2);
-            sendList(listShape3);
-            sendList(listShape4);
 
-           
-            
-            void sendList(List<string> listShape)
+
+
+            //sendList(listShape1);
+            //sendList(listShape2);
+            //sendList(listShape3);
+            //sendList(listShape4);
+
+            //if (listShape1.Contains("Circle"))
+            //{
+
+            //}
+            //else
+            //{
+            //    square.getList(listShape1);
+            //}
+
+
+            //void sendList(List<string> listShape)
+            //{
+
+
+            //    switch (listShape.Contains("CIRCLE"))
+            //    {
+            //        case true:
+
+
+            //            circle.getList(listShape);
+
+            //            break;
+
+            //        case false:
+            //            square.getList(listShape);
+            //            break;
+
+            //    }
+
+            //KAN KONTROLLEN GÖRAS I SWITCH SATSEN HURUVIDA DET ÄR CIRKEL ELLER FYRKANT OCH MAN DÄR SKICKAR IN INDEXPOSITIONERNA I VARJE PAREMETER
+
+
+            //// given point
+            //int SquareX = 1, SquareY = 5;
+
+            //var x1 = botX - inputLengthSquare / 2;
+            //var y1 = botY - inputLengthSquare / 2;
+            //var x2 = topX + inputLengthSquare / 2;
+            //var y2 = topY + inputLengthSquare / 2;
+
+
+            //var instancePointsSquare = inputPointsSquare;
+            //var AreaSquare = 10;
+
+            //// function call
+            if (square.HitSquare(x1, y1, x2, y2, SquareX, SquareY))
             {
-              
-
-                switch (listShape.Contains("CIRCLE"))
-                {
-                    case true:
-                        circle.getList(listShape);
-                      
-                        break;
-
-                    case false: 
-                        square.getList(listShape);
-                        break;
-
-                }
-
-
-                
+                Console.Write("Inuti fyrkant");
+                var eqSquareH = inputShapeTypeSquare * instancePointsSquare / AreaSquare;
+                shapeScoreh.Add(eqSquareH);
+            }
+            else
+            {
+                Console.Write("Utanför fyrkant");
+                var eqSquareM = inputShapeTypeSquare * instancePointsSquare / AreaSquare;
+                shapeScoreh.Add(eqSquareM);
             }
 
 
-            
+
+
+            //var instancePointsCircle = inputPointsCircle;
+            //var AreaCircle = 10;
+            //var x = 51;
+            //var y = 1;
+            //var length = inputLCircle;
+            //var circleX = 0;
+            //var circleY = 1;
+            //var rad = (int) (length / (2 * Math.PI));
+
+            //var botX = 10;
+            //var botY = 3;
+            //var topX = 20;
+            //var topY = 25;
+            //var L = 4;
+
+
+            if (circle.HitCircle(circleX, circleY, rad, x, y))
+            {
+                Console.WriteLine("Inuti cirkel");
+                var eqCircleH = inputShapeTypeCircle * instancePointsCircle / AreaCircle;
+                shapeScoreh.Add(eqCircleH);
+            }
+            else
+            {
+                Console.WriteLine("Utanför cirkel");
+                var eqCircleM = inputShapeTypeCircle * instancePointsCircle / AreaCircle;
+                shapeScorem.Add(eqCircleM);
+            }
+
+        }
 
 
 
 
 
 
-        //int returnShape(List<string> listShape1)
-        //{
+
+
+
+            //int returnShape(List<string> listShape1)
+            //{
 
             //loopen slutar när den läser circle
 
@@ -375,76 +454,21 @@ namespace Lab_V2
 
 
 
+//// bottom-left and top-right
+//// corners of rectangle
+////int x1 = 0, y1 = 0,
+////    x2 = 10, y2 = 8;
 
-                //var instancePointsCircle = inputPointsCircle;
-                //var AreaCircle = 10;
-                //var x = 51;
-                //var y = 1;
-                //var length = inputLCircle;
-                //var circleX = 0;
-                //var circleY = 1;
-                //var rad = (int) (length / (2 * Math.PI));
+////Avser fyrkant
+//Console.WriteLine("Ange en längd");
+//var inputLengthSquare = Convert.ToInt32(Console.ReadLine());
 
-                //var botX = 10;
-                //var botY = 3;
-                //var topX = 20;
-                //var topY = 25;
-                //var L = 4;
+//Console.WriteLine("Ange poäng för objektet");
+//var inputPointsSquare = Convert.ToInt32(Console.ReadLine());
 
+//Console.WriteLine("Ange att det är en fyrkant = 1");
+////var inputShapeTypeSquare = Convert.ToInt32(Console.ReadLine());
 
-                //if (circle.HitCircle(circleX, circleY, rad, x, y))
-                //{
-                //    Console.WriteLine("Inuti cirkel");
-                //    var eqCircleH = inputShapeTypeCircle * instancePointsCircle / AreaCircle;
-                //    shapeScoreh.Add(eqCircleH);
-                //}
-                //else
-                //{
-                //    Console.WriteLine("Utanför cirkel");
-                //    var eqCircleM = inputShapeTypeCircle * instancePointsCircle / AreaCircle;
-                //    shapeScorem.Add(eqCircleM);
-                //}
-
-                //// bottom-left and top-right
-                //// corners of rectangle
-                ////int x1 = 0, y1 = 0,
-                ////    x2 = 10, y2 = 8;
-
-                ////Avser fyrkant
-                //Console.WriteLine("Ange en längd");
-                //var inputLengthSquare = Convert.ToInt32(Console.ReadLine());
-
-                //Console.WriteLine("Ange poäng för objektet");
-                //var inputPointsSquare = Convert.ToInt32(Console.ReadLine());
-
-                //Console.WriteLine("Ange att det är en fyrkant = 1");
-                ////var inputShapeTypeSquare = Convert.ToInt32(Console.ReadLine());
-
-                //// given point
-                //int SquareX = 1, SquareY = 5;
-
-                //var x1 = botX - inputLengthSquare / 2;
-                //var y1 = botY - inputLengthSquare / 2;
-                //var x2 = topX + inputLengthSquare / 2;
-                //var y2 = topY + inputLengthSquare / 2;
-
-
-                //var instancePointsSquare = inputPointsSquare;
-                //var AreaSquare = 10;
-
-                //// function call
-                //if (square.HitSquare(x1, y1, x2, y2, SquareX, SquareY))
-                //{
-                //    Console.Write("Inuti fyrkant");
-                //    var eqSquareH = inputShapeTypeSquare * instancePointsSquare / AreaSquare;
-                //    shapeScoreh.Add(eqSquareH);
-                //}
-                //else
-                //{
-                //    Console.Write("Utanför fyrkant");
-                //    var eqSquareM = inputShapeTypeSquare * instancePointsSquare / AreaSquare;
-                //    shapeScoreh.Add(eqSquareM);
-                //}
 
                 //Console.WriteLine(string.Join(", ", shapeScoreh));
                 //Console.WriteLine(string.Join(", ", shapeScorem));
