@@ -52,10 +52,10 @@ namespace Lab_V2
 
             //var stringInput = "SHAPE,X,Y,LENGTH,POINTS";
 
-            //var stringInput = "shape ,X,Y,LENGTH ,points;CIRCLE ,3,1,13,100;CIRCLE ,1,-1,15,200; square, -1 ,0 ,20 ,300; SQUARE , -3 ,2 ,8 ,400;";
+            var stringInput = "SHAPE ,X,Y,LENGTH ,POINTS;CIRCLE ,3,1,13,100;CIRCLE ,1,-1,15,200; square, -1 ,0 ,20 ,300; SQUARE , -3 ,2 ,8 ,400;";
             //ATT MATA IN: shape ,X,Y,LENGTH ,points; CIRCLE ,3,1,13,100; CIRCLE ,1,-1,15,200; square, -1 ,0 ,20 ,300; SQUARE , -3 ,2 ,8 ,400;
-            Console.WriteLine("Mata in värdena");
-            var stringInput = Console.ReadLine().ToUpper();
+            //Console.WriteLine("Mata in värdena");
+            //var stringInput = Console.ReadLine().ToUpper();
             string trimmed = String.Concat(stringInput.Where(c => !Char.IsWhiteSpace(c)));
 
             Console.WriteLine("Upphöjda bokstäver" + trimmed);
@@ -74,7 +74,7 @@ namespace Lab_V2
 
             foreach (var vari in headerVariables)
             {
-                Console.WriteLine(vari);
+                Console.WriteLine(vari + "test");
 
             }
             Console.WriteLine();
@@ -86,9 +86,28 @@ namespace Lab_V2
             var startIndexVar = 24;
             var lengthIndexVar = 73;
             String substringVariables = trimmed.Substring(startIndexVar, lengthIndexVar);
-            var listVariables = Regex.Split(substringVariables, @";");
+            var listVariables = Regex.Split(substringVariables, @";|,");
 
-           
+            
+
+            int indexShape = Array.FindIndex(headerVariables, row => row.Contains("SHAPE"));
+            int indexX = Array.FindIndex(headerVariables, row => row.Contains("X"));
+            int indexY = Array.FindIndex(headerVariables, row => row.Contains("Y"));
+            int indexPoints = Array.FindIndex(headerVariables, row => row.Contains("POINTS"));
+
+
+            Console.WriteLine(indexX + "test");
+            Console.WriteLine(indexY + "test");
+            Console.WriteLine(indexShape + "test");
+            Console.WriteLine(indexPoints + "test");
+
+
+
+         
+                var item = listVariables[indexX];
+                // work with item here
+                Console.WriteLine(item + "testX");
+            
 
             foreach (var varh in listVariables)
             { Console.WriteLine(varh);
