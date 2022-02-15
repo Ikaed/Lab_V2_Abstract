@@ -20,7 +20,14 @@ namespace Lab_V2
         {
 
           
-            List<string> listShape = new List<string>();
+            List<string> listShape1 = new List<string>();
+
+            List<string> listShape2 = new List<string>();
+
+            List<string> listShape3 = new List<string>();
+
+            List<string> listShape4 = new List<string>();
+
             List<string> listX = new List<string>();
             List<string> listY = new List<string>();
             List<string> listLength = new List<string>();
@@ -52,7 +59,10 @@ namespace Lab_V2
 
             //var stringInput = "SHAPE,X,Y,LENGTH,POINTS";
 
-            var stringInput = "SHAPE ,X,Y,LENGTH ,POINTS;CIRCLE ,3,1,13,100;CIRCLE ,1,-1,15,200; square, -1 ,0 ,20 ,300; SQUARE , -3 ,2 ,8 ,400;";
+            //CIRCLE ,1,-1,15,200; square, -1 ,0 ,20 ,300; SQUARE , -3 ,2 ,8 ,400;"
+
+            var stringInput =
+                "SHAPE ,X,Y,LENGTH ,POINTS;CIRCLE ,3,1,13,100; CIRCLE ,1,-1,15,200; square, -1 ,0 ,20 ,300; SQUARE , -3 ,2 ,8 ,400;";
             //ATT MATA IN: shape ,X,Y,LENGTH ,points; CIRCLE ,3,1,13,100; CIRCLE ,1,-1,15,200; square, -1 ,0 ,20 ,300; SQUARE , -3 ,2 ,8 ,400;
             //Console.WriteLine("Mata in värdena");
             //var stringInput = Console.ReadLine().ToUpper();
@@ -86,34 +96,89 @@ namespace Lab_V2
             var startIndexVar = 24;
             var lengthIndexVar = 73;
             String substringVariables = trimmed.Substring(startIndexVar, lengthIndexVar);
+
+            Console.WriteLine(substringVariables + "test222");
+
             var listVariables = Regex.Split(substringVariables, @";|,");
 
-            
+      
+       
 
             int indexShape = Array.FindIndex(headerVariables, row => row.Contains("SHAPE"));
             int indexX = Array.FindIndex(headerVariables, row => row.Contains("X"));
             int indexY = Array.FindIndex(headerVariables, row => row.Contains("Y"));
             int indexPoints = Array.FindIndex(headerVariables, row => row.Contains("POINTS"));
+            int indexLength = Array.FindIndex(headerVariables, row => row.Contains("LENGTH"));
 
 
-            Console.WriteLine(indexX + "test");
-            Console.WriteLine(indexY + "test");
-            Console.WriteLine(indexShape + "test");
-            Console.WriteLine(indexPoints + "test");
+            //Lägger till värdena för shape i en lista
 
+            listShape1.Add(listVariables[indexShape]);
+            listShape1.Add(listVariables[indexX]);
+            listShape1.Add(listVariables[indexY]);
+            listShape1.Add(listVariables[indexPoints]);
+            listShape1.Add(listVariables[indexLength]);
 
-
-         
-                var item = listVariables[indexX];
-                // work with item here
-                Console.WriteLine(item + "testX");
+            string variable2 = substringVariables.Substring(substringVariables.IndexOf(';') + 1);
+            var listVariables2 = Regex.Split(variable2, @";|,");
             
 
-            foreach (var varh in listVariables)
-            { Console.WriteLine(varh);
+
+            listShape2.Add(listVariables2[indexShape]);
+            listShape2.Add(listVariables2[indexX]);
+            listShape2.Add(listVariables2[indexY]);
+            listShape2.Add(listVariables2[indexPoints]);
+            listShape2.Add(listVariables2[indexLength]);
+
+
+            var variable3 = variable2.Substring(variable2.IndexOf(';') + 1);
+            var listVariables3 = Regex.Split(variable3, @";|,");
+           
+            
+
+            listShape3.Add(listVariables3[indexShape]);
+            listShape3.Add(listVariables3[indexX]);
+            listShape3.Add(listVariables3[indexY]);
+            listShape3.Add(listVariables3[indexPoints]);
+            listShape3.Add(listVariables3[indexLength]);
+
+            var variable4 = variable3.Substring(variable3.IndexOf(';') + 1);
+            var listVariables4 = Regex.Split(variable4, @";|,");
+            Console.WriteLine(variable4);
+            listShape4.Add(listVariables4[indexShape]);
+            listShape4.Add(listVariables4[indexX]);
+            listShape4.Add(listVariables4[indexY]);
+            listShape4.Add(listVariables4[indexPoints]);
+            listShape4.Add(listVariables4[indexLength]);
+
+            foreach (var VARIABLE in listShape1)
+            {
+                Console.WriteLine(VARIABLE +"test");
             }
 
-            
+            foreach (var VARIABLE in listShape2)
+            {
+                Console.WriteLine(VARIABLE + "test2");
+            }
+
+            foreach (var VARIABLE in listShape3)
+            {
+                Console.WriteLine(VARIABLE + "test234");
+            }
+
+            foreach (var VARIABLE in listShape4)
+            {
+                Console.WriteLine(VARIABLE + "test28346234");
+            }
+
+            //Console.WriteLine(indexX + "test");
+            //Console.WriteLine(indexY + "test");
+            //Console.WriteLine(indexShape + "test");
+            //Console.WriteLine(indexPoints + "test");
+            //Console.WriteLine(indexLength + "test");
+
+
+
 
             Console.WriteLine("Ange X för pricken");
             var userX = Convert.ToInt32(Console.ReadLine());
