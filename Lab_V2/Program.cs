@@ -204,18 +204,18 @@ namespace Lab_V2
             sendList(listShape3);
             sendList(listShape4);
 
-            
-    
 
-    void sendList(List<string> listShape)
+
+
+            void sendList(List<string> listShape)
             {
-            
 
+            
                 switch (listShape.Contains("CIRCLE"))
                 {
                     case true:
-                   
-                        circle(listShape);
+                     
+                        Circle(listShape);
                         break;
 
                     case false:
@@ -226,12 +226,17 @@ namespace Lab_V2
 
             }
 
+        }
+
+        public Circle(List<string> listShape)
+        {
+            
+        }
 
 
 
 
-
-    //int returnShape(List<string> listShape1)
+        //int returnShape(List<string> listShape1)
     //{
 
     //loopen slutar när den läser circle
