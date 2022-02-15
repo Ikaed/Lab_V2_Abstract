@@ -15,7 +15,9 @@ namespace Lab_V2
     internal class Program
     {
 
+      
 
+     
         static void Main(string[] args)
         {
 
@@ -198,80 +200,82 @@ namespace Lab_V2
 
             //    }
             //}
+            Circle circle = new Circle();
+            Square square = new Square();
+
 
             sendList(listShape1);
             sendList(listShape2);
             sendList(listShape3);
             sendList(listShape4);
 
-
-
-
+           
+            
             void sendList(List<string> listShape)
             {
+              
 
-            
                 switch (listShape.Contains("CIRCLE"))
                 {
                     case true:
-                     
-                        Circle(listShape);
+                        circle.getList(listShape);
+                      
                         break;
 
-                    case false:
-                        Square(listShape);
+                    case false: 
+                        square.getList(listShape);
                         break;
 
                 }
 
+
+                
             }
 
-        }
 
-        public Circle(List<string> listShape)
-        {
             
-        }
+
+
 
 
 
 
         //int returnShape(List<string> listShape1)
-    //{
+        //{
 
-    //loopen slutar när den läser circle
-
-
-    //foreach (var VARIABLE in listShape1)
-    //{
-    //    Console.WriteLine(VARIABLE +"test");
-    //}
-
-    //foreach (var VARIABLE in listShape2)
-    //{
-    //    Console.WriteLine(VARIABLE + "test2");
-    //}
-
-    //foreach (var VARIABLE in listShape3)
-    //{
-    //    Console.WriteLine(VARIABLE + "test234");
-    //}
-
-    //foreach (var VARIABLE in listShape4)
-    //{
-    //    Console.WriteLine(VARIABLE + "test28346234");
-    //}
-
-    //Console.WriteLine(indexX + "test");
-    //Console.WriteLine(indexY + "test");
-    //Console.WriteLine(indexShape + "test");
-    //Console.WriteLine(indexPoints + "test");
-    //Console.WriteLine(indexLength + "test");
+            //loopen slutar när den läser circle
 
 
+            //foreach (var VARIABLE in listShape1)
+            //{
+            //    Console.WriteLine(VARIABLE +"test");
+            //}
+
+            //foreach (var VARIABLE in listShape2)
+            //{
+            //    Console.WriteLine(VARIABLE + "test2");
+            //}
+
+            //foreach (var VARIABLE in listShape3)
+            //{
+            //    Console.WriteLine(VARIABLE + "test234");
+            //}
+
+            //foreach (var VARIABLE in listShape4)
+            //{
+            //    Console.WriteLine(VARIABLE + "test28346234");
+            //}
+
+            //Console.WriteLine(indexX + "test");
+            //Console.WriteLine(indexY + "test");
+            //Console.WriteLine(indexShape + "test");
+            //Console.WriteLine(indexPoints + "test");
+            //Console.WriteLine(indexLength + "test");
 
 
-    Console.WriteLine("Ange X för pricken");
+
+
+            Console.WriteLine("Ange X för pricken");
                 var userX = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Ange Y för pricken");
                 var userY = Convert.ToInt32(Console.ReadLine());
